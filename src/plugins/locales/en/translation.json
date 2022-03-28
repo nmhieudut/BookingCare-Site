@@ -1,0 +1,15 @@
+{
+  "header": {
+    "menu": {
+      "home": "Home",
+      "blog": "Blog",
+      "docs": "Docs",
+      "contact": "Contact",
+      "login": "Log In",
+      "signup": "Sign Up"
+    },
+    "footer": {
+      "changeLocale": "Language"
+    }
+  }
+}
