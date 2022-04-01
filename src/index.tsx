@@ -1,15 +1,16 @@
-import { ColorModeScript } from '@chakra-ui/react'
+// import { ColorModeScript } from '@chakra-ui/react'
 import App from 'core/app'
-import theme from 'utils/theme'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { CssBaseline } from '@nextui-org/react';
 import { BrowserRouter } from 'react-router-dom'
 import 'styles/main.scss'
 import reportWebVitals from './reportWebVitals'
 
 ReactDOM.render(
   <React.StrictMode>
-    <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+    <CssBaseline />
+    {/* <ColorModeScript initialColorMode={theme.config.initialColorMode} /> */}
     <BrowserRouter>
       <App />
     </BrowserRouter>

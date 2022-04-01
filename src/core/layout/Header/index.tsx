@@ -1,27 +1,17 @@
-import {
-  Box,
-  Button,
-  Flex,
-  Stack,
-  Tooltip,
-  useColorMode,
-  useColorModeValue
-} from '@chakra-ui/react'
-import { navs } from 'constants/navbar'
+import { Grid } from '@nextui-org/react'
 import Hamburger from 'hamburger-react'
 import { useEffect, useRef, useState } from 'react'
-import { FaMoon, FaRegLightbulb } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 export default function Header() {
   const wrapperRef = useRef<any>(null)
   const [showLinks, setShowLinks] = useState(false)
-  const bg = useColorModeValue('white', 'gray.800')
-  const { colorMode, toggleColorMode } = useColorMode()
-  const borderColor = useColorModeValue(
-    '1px solid rgba(229,231,235,1)',
-    '1px solid rgb(31, 41, 55)'
-  )
+  // const bg = useColorModeValue('white', 'gray.800')
+  // const { colorMode, toggleColorMode } = useColorMode()
+  // const borderColor = useColorModeValue(
+  //   '1px solid rgba(229,231,235,1)',
+  //   '1px solid rgb(31, 41, 55)'
+  // )
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -61,39 +51,28 @@ export default function Header() {
   }
   const MenuToggle = () => {
     return (
-      <Box
+      <div
         ref={wrapperRef}
-        display={{ base: 'block', md: 'none' }}
+        className="block md:none"
         onClick={() => setShowLinks(!showLinks)}
       >
         <Hamburger toggled={showLinks} direction="left" />
-      </Box>
+      </div>
     )
   }
   const NavBarContainer = ({ children }) => {
-    return (
-      <Flex
-        as="nav"
-        align="center"
-        justify="space-between"
-        wrap="wrap"
-        w="100%"
-        className="container"
-      >
-        {children}
-      </Flex>
-    )
+    return <Grid className="container">{children}</Grid>
   }
   return (
-    <Box
+    <div
       className="fixed top-0 left-0 z-50 w-full"
-      bg={bg}
-      borderBottom={borderColor}
+      // bg={bg}
+      // borderBottom={borderColor}
     >
       <NavBarContainer>
         <Logo />
         <MenuToggle />
-        <Box
+        {/* <Box
           display={{ base: showLinks ? 'block' : 'none', md: 'block' }}
           flexBasis={{ base: '100%', md: 'auto' }}
         >
@@ -118,8 +97,8 @@ export default function Header() {
               </Button>
             </Tooltip>
           </Stack>
-        </Box>
+        </Box> */}
       </NavBarContainer>
-    </Box>
+    </div>
   )
 }
